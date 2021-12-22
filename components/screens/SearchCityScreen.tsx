@@ -1,13 +1,5 @@
 import React, {useState} from 'react';
-import {
-  ActivityIndicator,
-  Button,
-  FlatList,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-import {GeoName} from '../../types/geoname';
+import {View} from 'react-native';
 import {SearchInput} from '../SearchInput';
 
 export const SearchCityScreen = ({navigation}) => {
