@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {SearchInput} from '../SearchInput';
+import {SearchInput} from '../components/SearchInput';
 
 export const SearchCountryScreen = ({navigation}) => {
   const [loading, setLoading] = useState(false);

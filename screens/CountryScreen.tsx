@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, FlatList, Text, View} from 'react-native';
-import {GeoName} from '../../types/geoname';
+import {GeoName} from '../types/geoname';
 
 export const CountryScreen = ({navigation, route}) => {
   const [loading, setLoading] = useState(false);

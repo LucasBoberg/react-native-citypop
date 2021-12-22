@@ -8,4 +8,7 @@ export interface GeoName {
   toponymName: string;
   fcl: string;
   fcode: string;
+  fcodeName: string;
+  countryName: string;
+  countryId: string;
 }
