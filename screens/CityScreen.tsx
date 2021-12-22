@@ -1,11 +1,17 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {View} from 'react-native';
+import {GeoNameView} from '../components/GeoNameView';
 
 export const CityScreen = ({navigation, route}) => {
   return (
-    <>
-      <Text>{route.params.data.name}</Text>
-      <Text>{JSON.stringify(route.params.data)}</Text>
-    </>
+    <View
+      style={{
+        padding: 10,
+      }}>
+      <GeoNameView
+        name={route.params.data.name}
+        population={route.params.data.population}
+      />
+    </View>
   );
 };

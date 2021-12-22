@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
 import {GeoName} from '../types/geoname';
 import {Button} from '../components/Button';
+import {GeoNameView} from '../components/GeoNameView';
 
 export const CountryScreen = ({navigation, route}) => {
   const [loading, setLoading] = useState(false);
@@ -36,27 +37,10 @@ export const CountryScreen = ({navigation, route}) => {
         style={{
           flex: 1,
         }}>
-        <Text
-          style={{
-            fontSize: 40,
-            textAlign: 'center',
-            marginTop: 30,
-          }}>
-          {route.params.data.name}
-        </Text>
-        <Text
-          style={{
-            fontSize: 20,
-            textAlign: 'center',
-            marginTop: 10,
-            marginBottom: 30,
-          }}>
-          has a population of{' '}
-          <Text style={{fontWeight: 'bold'}}>
-            {new Intl.NumberFormat().format(route.params.data.population)}
-          </Text>{' '}
-          people
-        </Text>
+        <GeoNameView
+          name={route.params.data.name}
+          population={route.params.data.population}
+        />
       </View>
       <View
         style={{
