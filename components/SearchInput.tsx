@@ -22,7 +22,15 @@ export const SearchInput = ({
 }: SearchInputProps) => {
   return (
     <TextInput
-      style={{height: 40}}
+      style={{
+        height: 50,
+        fontSize: 20,
+        borderWidth: 1,
+        paddingHorizontal: 20,
+        borderRadius: 4,
+      }}
+      autoComplete="off"
+      autoFocus
       placeholder={placeholder}
       onChangeText={onChangeText}
       defaultValue={value}
