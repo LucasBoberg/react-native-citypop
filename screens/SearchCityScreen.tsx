@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {Button} from '../components/Button';
 import {NoResult} from '../components/NoResult';
 import {SearchInput} from '../components/SearchInput';
@@ -8,9 +8,11 @@ import {GeoName} from '../types/geoname';
 export const SearchCityScreen = ({navigation}) => {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState<GeoName[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const searchCities = async () => {
     try {
+      setLoading(true);
       const response = await fetch(
         'http://api.geonames.org/searchJSON?maxRows=10&username=weknowit&cities=cities15000&q=' +
           query,
@@ -19,6 +21,8 @@ export const SearchCityScreen = ({navigation}) => {
       setResult(json.geonames);
     } catch (err) {
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,8 +46,16 @@ export const SearchCityScreen = ({navigation}) => {
         />
       </View>
       <View style={{flex: 8}}>
+        {loading && (
+          <ActivityIndicator
+            style={{position: 'absolute', top: -20, left: '46%', zIndex: 10}}
+          />
+        )}
         {query === '' && result.length === 0 && (
           <NoResult text="Start by searching for a city" />
+        )}
+        {query !== '' && result.length === 0 && (
+          <NoResult text="No city with that name" />
         )}
         <FlatList
           data={result}

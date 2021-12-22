@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {GeoName} from '../types/geoname';
 import {Button} from '../components/Button';
 import {GeoNameView} from '../components/GeoNameView';
@@ -7,7 +7,6 @@ import {GeoNameView} from '../components/GeoNameView';
 export const CountryScreen = ({navigation, route}) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<readonly GeoName[]>([]);
-  const [error, setError] = useState('');
   const fetchCities = async () => {
     try {
       setLoading(true);
@@ -41,6 +40,11 @@ export const CountryScreen = ({navigation, route}) => {
           name={route.params.data.name}
           population={route.params.data.population}
         />
+        {loading && (
+          <ActivityIndicator
+            style={{position: 'absolute', top: -20, left: '46%', zIndex: 10}}
+          />
+        )}
       </View>
       <View
         style={{
