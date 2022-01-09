@@ -28,6 +28,7 @@ export const SearchInput = ({
         borderWidth: 1,
         paddingHorizontal: 20,
         borderRadius: 4,
+        backgroundColor: '#FFF',
       }}
       autoComplete="off"
       autoFocus

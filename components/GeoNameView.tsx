@@ -12,6 +12,7 @@ export const GeoNameView = ({name, population}: GeoNameViewProps) => {
       <Text
         style={{
           fontSize: 40,
+          color: '#000',
           textAlign: 'center',
           marginTop: 30,
         }}>
@@ -20,6 +21,7 @@ export const GeoNameView = ({name, population}: GeoNameViewProps) => {
       <Text
         style={{
           fontSize: 20,
+          color: '#000',
           textAlign: 'center',
           marginTop: 10,
           marginBottom: 30,

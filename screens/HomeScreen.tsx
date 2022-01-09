@@ -12,6 +12,7 @@ export const HomeScreen = ({navigation}: Props) => {
       <Text
         style={{
           fontSize: 40,
+          color: '#000',
           textAlign: 'center',
           marginVertical: 30,
         }}>
