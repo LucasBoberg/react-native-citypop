@@ -1,8 +1,12 @@
 import React from 'react';
 import {View} from 'react-native';
 import {GeoNameView} from '../components/GeoNameView';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackParamList} from '../types/stackParamList';
 
-export const CityScreen = ({navigation, route}) => {
+type Props = NativeStackScreenProps<StackParamList, 'City'>;
+
+export const CityScreen = ({route}: Props) => {
   return (
     <View
       style={{

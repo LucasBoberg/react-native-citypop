@@ -1,4 +1,4 @@
-export interface GeoName {
+export type GeoName = {
   lng: string;
   lat: string;
   geonameId: number;
@@ -11,4 +11,4 @@ export interface GeoName {
   fcodeName: string;
   countryName: string;
   countryId: string;
-}
+};

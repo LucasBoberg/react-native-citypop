@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {Button} from '../components/Button';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackParamList} from '../types/stackParamList';
 
-export const HomeScreen = ({navigation}) => {
+type Props = NativeStackScreenProps<StackParamList, 'Home'>;
+
+export const HomeScreen = ({navigation}: Props) => {
   return (
     <View style={{padding: 10}}>
       <Text

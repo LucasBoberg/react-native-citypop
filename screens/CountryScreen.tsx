@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, View} from 'react-native';
 import {GeoName} from '../types/geoname';
 import {Button} from '../components/Button';
 import {GeoNameView} from '../components/GeoNameView';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackParamList} from '../types/stackParamList';
 
-export const CountryScreen = ({navigation, route}) => {
+type Props = NativeStackScreenProps<StackParamList, 'Country'>;
+
+export const CountryScreen = ({navigation, route}: Props) => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<readonly GeoName[]>([]);
   const fetchCities = async () => {
@@ -16,7 +20,7 @@ export const CountryScreen = ({navigation, route}) => {
       );
       const json = await response.json();
       const cityData: GeoName[] = json.geonames.sort(
-        (a, b) => b.population - a.population,
+        (a: GeoName, b: GeoName) => b.population - a.population,
       );
       setData(cityData);
     } catch (err) {
@@ -52,7 +56,7 @@ export const CountryScreen = ({navigation, route}) => {
         }}>
         <FlatList
           data={data}
-          keyExtractor={item => item.geonameId}
+          keyExtractor={item => item.geonameId.toString()}
           renderItem={({item}) => (
             <View
               style={{

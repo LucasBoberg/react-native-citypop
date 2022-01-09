@@ -6,13 +6,14 @@ import {SearchCountryScreen} from './screens/SearchCountryScreen';
 import React from 'react';
 import {CityScreen} from './screens/CityScreen';
 import {CountryScreen} from './screens/CountryScreen';
+import {StackParamList} from './types/stackParamList';
 
 const App = () => {
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator<StackParamList>();
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={HomeScreen}

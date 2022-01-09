@@ -4,8 +4,12 @@ import {Button} from '../components/Button';
 import {NoResult} from '../components/NoResult';
 import {SearchInput} from '../components/SearchInput';
 import {GeoName} from '../types/geoname';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackParamList} from '../types/stackParamList';
 
-export const SearchCountryScreen = ({navigation}) => {
+type Props = NativeStackScreenProps<StackParamList, 'SearchCountry'>;
+
+export const SearchCountryScreen = ({navigation}: Props) => {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState<GeoName[]>([]);
   const [loading, setLoading] = useState(false);
@@ -59,7 +63,7 @@ export const SearchCountryScreen = ({navigation}) => {
         )}
         <FlatList
           data={result}
-          keyExtractor={item => item.geonameId}
+          keyExtractor={item => item.geonameId.toString()}
           renderItem={({item}) => (
             <View
               style={{
